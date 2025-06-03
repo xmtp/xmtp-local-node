@@ -4,44 +4,26 @@ Use this repo to easily launch a local XMTP node for app development and testing
 
 ## Prerequisites
 
-- [Docker Desktop](https://docs.docker.com/get-docker/) installed and running
- 
+One of the following installed and running: [Docker Desktop](https://docs.docker.com/get-docker/), [Orbstack](https://orbstack.dev/), or similar.
+
 ## Launch a local XMTP node
 
-```bash
-docker-compose -p xmtp -f docker-compose.yml up
+Run the `up` bash script:
+
+```shell
+./up
 ```
 
-This will create and start an XMTP Waku node and a local database in Docker Desktop, as shown here.
-
-![xmtp: waku-node-1 and db-1 rows in Docker Desktop](xmtp-node-docker.png)
+This will download and start all Docker containers to run an XMTP node.
 
 ## Connect an XMTP client to a local node
 
 To configure your XMTP client to connect to the local XMTP node, set the `env` [client option](https://docs.xmtp.org/inboxes/create-a-client#configure-an-xmtp-client) to `local`.
 
-## Common development workflows
+## Stop the local XMTP node
 
-### Create and start a node
+Run the `down` bash script:
 
-```bash
-docker-compose -p xmtp -f docker-compose.yml up
-```
-
-### Stop an existing node (preserves containers)
-
-```bash
-docker-compose -p xmtp -f docker-compose.yml stop
-```
-
-### Start an existing node
-
-```bash
-docker-compose -p xmtp -f docker-compose.yml start
-```
-
-### Stop and remove a node (removes containers)
-
-```bash
-docker-compose -p xmtp -f docker-compose.yml down
+```shell
+./down
 ```
